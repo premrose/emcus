@@ -9,8 +9,12 @@ This is a Flutter project for EMCUS, featuring authentication (sign in/sign up) 
 
 ## Features
   - Auth page checks if the user is authenticated and redirect to the dashboard or signin page
-  - Sign In and Sign Up screens using firebase
+  - Sign In and Sign Up screens authentication using FirebaseAuth using
+    - createUserWithEmailAndPassword
+    - signInWithEmailAndPassword
+    - signOut
   - Upon successful Signin or Signup, Dashboard screen will be navigated
+  - While creating new user the user name will be added in the firebase
   - Dashboard screens has a logout feature and bottom bar based navigation
 
 ## Project Structure
