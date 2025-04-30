@@ -1,5 +1,6 @@
 import 'package:emcus/modules/auth/bloc/auth_bloc.dart';
 import 'package:emcus/modules/auth/bloc/auth_event.dart';
+import 'package:emcus/modules/auth/views/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dashboard_bloc/dashboard_bloc.dart';
@@ -44,6 +45,12 @@ class DashboardScreen extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   context.read<AuthBloc>().add(SignOut());
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignInScreen(),
+                    ),
+                  );
                 },
                 icon: const Icon(Icons.logout_outlined),
               ),
@@ -51,9 +58,7 @@ class DashboardScreen extends StatelessWidget {
           ),
           backgroundColor: const Color(0xFF1E1745),
           body: Center(
-            child: Column(
-              children: [_pages[context.read<DashboardBloc>().state.tabIndex]],
-            ),
+            child: _pages[context.read<DashboardBloc>().state.tabIndex],
           ),
           bottomNavigationBar: Container(
             decoration: BoxDecoration(

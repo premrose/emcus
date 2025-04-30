@@ -5,6 +5,7 @@ import '../../models/user_model.dart';
 abstract class AuthRepository {
   Future<void> createNewUser(UserModel user);
   Future<void> signInUser(UserModel user);
+  Future<void> logout();
 }
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -25,6 +26,15 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> signInUser(UserModel user) async {
     try {
       return await _authService.signInUser(user);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> logout() async {
+    try {
+      return await _authService.logout();
     } catch (e) {
       rethrow;
     }
