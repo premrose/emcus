@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "183948499719",
+    "firebase_url": "https://sample-88b5b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "sample-88b5b",
+    "storage_bucket": "sample-88b5b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183948499719:android:25bf68c2ee46ff5f8783a2",
+        "android_client_info": {
+          "package_name": "com.example.emcus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3mazEdTdOg-WRAXWHv5g5rz6c1ulzTbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183948499719:android:b8b20faa266094418783a2",
+        "android_client_info": {
+          "package_name": "com.example.flutter_audio_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3mazEdTdOg-WRAXWHv5g5rz6c1ulzTbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
