@@ -3,6 +3,7 @@ import 'package:emcus/modules/auth/bloc/auth_event.dart';
 import 'package:emcus/modules/auth/views/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'dashboard_bloc/dashboard_bloc.dart';
 import 'dashboard_bloc/dashboard_event.dart';
 import 'dashboard_bloc/dashboard_state.dart';
@@ -23,9 +24,16 @@ class DashboardScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Emcus"),
             centerTitle: true,
-            leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+            elevation: 0,
+            title: SizedBox(
+              height: 31,
+              child: Image.asset("assets/emcus_logo.png"),
+            ),
+            leading: IconButton(
+              onPressed: () {},
+              icon: commonSVGWidget('assets/icon_1.svg'),
+            ),
             flexibleSpace: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -81,21 +89,21 @@ class DashboardScreen extends StatelessWidget {
                 onTap: (index) {
                   context.read<DashboardBloc>().add(DashboardTabChanged(index));
                 },
-                items: const [
+                items: [
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.dashboard),
+                    icon: commonSVGWidget('assets/icon_5.svg'),
                     label: 'Dashboard',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.pan_tool_sharp),
+                    icon: commonSVGWidget('assets/icon_2.svg'),
                     label: 'Maintenance',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.search),
+                    icon: commonSVGWidget('assets/icon_3.svg'),
                     label: 'Diagnostics',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
+                    icon: commonSVGWidget('assets/icon_4.svg'),
                     label: 'Settings',
                   ),
                 ],
@@ -104,6 +112,14 @@ class DashboardScreen extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Container commonSVGWidget(imagePath) {
+    return Container(
+      height: 21,
+      width: 21,
+      decoration: BoxDecoration(image: DecorationImage(image: Svg(imagePath))),
     );
   }
 }

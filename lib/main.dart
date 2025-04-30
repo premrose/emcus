@@ -1,5 +1,5 @@
 import 'package:emcus/modules/auth/bloc/auth_bloc.dart';
-import 'package:emcus/modules/auth/views/auth_screen.dart';
+import 'package:emcus/modules/auth/views/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: const AuthScreen(),
+        home: const Auth(),
       ),
     );
   }

@@ -28,17 +28,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF2C2154),
+      backgroundColor: const Color(0XFF2C2154),
+      appBar: AppBar(
+        backgroundColor: const Color(0XFF2C2154),
+        centerTitle: true,
+        elevation: 0,
+        title: SizedBox(
+          height: 31,
+          child: Image.asset("assets/emcus_logo.png"),
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 24),
-            padding: const EdgeInsets.all(24),
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.all(21),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
             ),
-            width: 350,
             child: BlocConsumer<AuthBloc, AuthState>(
               listener: (context, state) {
                 if (state is SignUpSuccess) {
@@ -72,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 18),
                       CommonTextfield(
                         controller: _nameController,
                         labelText: 'Name',
@@ -83,7 +92,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     ? 'Enter your name'
                                     : null,
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 10),
                       CommonTextfield(
                         controller: _companyController,
                         labelText: 'Company Name',
@@ -94,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     ? 'Enter your company name'
                                     : null,
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 10),
                       CommonTextfield(
                         controller: _emailController,
                         labelText: 'Email Address',
@@ -105,7 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     ? 'Enter a valid email'
                                     : null,
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 10),
                       CommonTextfield(
                         controller: _passwordController,
                         obscureText: true,
@@ -117,7 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     ? 'Password must be at least 6 characters'
                                     : null,
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 10),
                       CommonTextfield(
                         controller: _confirmPasswordController,
                         obscureText: true,
@@ -129,13 +138,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     ? 'Passwords do not match'
                                     : null,
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
-                          Checkbox(
-                            value: _agreed,
-                            onChanged:
-                                (v) => setState(() => _agreed = v ?? false),
+                          SizedBox(
+                            width: 27,
+                            child: Checkbox(
+                              value: _agreed,
+                              onChanged:
+                                  (v) => setState(() => _agreed = v ?? false),
+                            ),
                           ),
                           const Expanded(
                             child: Text.rich(
@@ -159,12 +171,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
                           Expanded(
                             child: OutlinedButton(
-                              onPressed: () => Navigator.of(context).pop(),
+                              style: OutlinedButton.styleFrom(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 42,
+                                  vertical: 14,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(27),
+                                ),
+                              ),
+                              onPressed: () {},
                               child: const Text('Cancel'),
                             ),
                           ),
@@ -172,7 +193,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Expanded(
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 42,
+                                  vertical: 14,
+                                ),
                                 backgroundColor: Colors.red,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(27),
+                                )
                               ),
                               onPressed:
                                   state is SignUpLoading
@@ -199,7 +227,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   state is SignUpLoading
                                       ? const SizedBox(
                                         height: 16,
-                                        width: 16,
+                                        width: 42,
                                         child: CircularProgressIndicator(
                                           strokeWidth: 2,
                                           color: Colors.white,
@@ -210,7 +238,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 12),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
